@@ -1,25 +1,33 @@
-{{#each itemsByCategory}}
-  {{#if this.name}}<h3>{{this.name}}</h3>{{/if}}
+<article class="swrifts">
+    <section class="table-wrapper">
+        {{#each itemsByCategory}}
+            {{#if this.name}}<h3>{{this.name}}</h3>{{/if}}
 
-  <div class="pl-summary-journals">
-    <table class="table summary-table">
-      <tbody>
-        <tr>
-          <th>{{localize "SWADE.Name"}}</th>
-          <th>{{localize "SWADE.Req"}}</th>
-        </tr>
-        {{#each this.value}}
-          <tr>
-            <td class="hasPopup">
-              @Compendium[{{metadata_id}}.{{ogId}}]{ {{~name~}}}
-              <div class="popup">{{{popupText}}}
-                <p class="compendiumSource">Source: {{compendiumLabel}}</p>
-              </div>
-            </td>
-            <td class="long-text">{{system.requirements.value}}</td>
-          </tr>
+            <div class="pl-summary-journals">
+                <table>
+                    <tbody>
+                    <tr>
+                        <th></th>
+                        <th>{{localize "SWADE.Name"}}</th>
+                        <th>Description</th>
+                        <th>{{localize "SWADE.Req"}}</th>
+                    </tr>
+                    {{#each this.value}}
+                        <tr>
+                            <td><img src="{{img}}"></td>
+                            <td><b>@Compendium[{{metadata_id}}.{{ogId}}]{ {{~name~}}}</b></td>
+                            <td>
+                                <div class="summary-description">
+                                    {{{popupText}}}
+                                    <p class="compendiumSource">Source: {{compendiumLabel}}</p>
+                                </div>
+                            </td>
+                            <td class="long-text">{{system.requirements.value}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
         {{/each}}
-      </tbody>
-    </table>
-  </div>
-{{/each}}
+    </section>
+</article>

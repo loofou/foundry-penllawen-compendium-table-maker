@@ -76,6 +76,12 @@ export default class CompendiumSummariserRenderer {
                     }
                 }
 
+                //EMU: ADD HERE
+                if (item.system.additionalStats?.morphType)
+                {
+                    folderName = item.system.additionalStats.morphType.value;
+                }
+
                 // strip all HTML out of the description as it's going to be shown in a
                 // hover box with no formatting.
                 // TODO this is shite, fix.
@@ -87,7 +93,9 @@ export default class CompendiumSummariserRenderer {
                     item.popupText = item.system.description;
                     item.popupText = item.popupText.replace(/<.?div.*?>/gi, "");  
                     item.popupText = item.popupText.replace(/<.?span.*?>/gi, "");  
-                    item.popupText = item.popupText.replace(/<.?h[1-9]>/gi, "");  
+                    item.popupText = item.popupText.replace(/<.?h[1-9]>/gi, "");
+                    item.popupText = item.popupText.replace(/<.?article.*?>/gi, "");
+                    item.popupText = item.popupText.replace(/<.?section.*?>/gi, "");
                 }
 
                 // Perform any per-system, per-item-type specific processing I need
@@ -175,15 +183,15 @@ export default class CompendiumSummariserRenderer {
                     break;
                 case "race":
                     item.extraData.translatedAbilitySubTypeName = 
-                        game.i18n.format("SWADE.RacialAbilities");
+                        game.i18n.format("SWADE.Race");
                     break;
                 case "archetype":
                     item.extraData.translatedAbilitySubTypeName = 
-                        game.i18n.format("SWADE.ArchetypeAbilities");
+                        game.i18n.format("SWADE.Archetype");
                     break;
                 default:
                     item.extraData.translatedAbilitySubTypeName = 
-                        game.i18n.format("PCTM.ErrorUnknownAbilitySubtype");
+                        game.i18n.format("SWADE.SpecialAbilities");
             }
         }
     }

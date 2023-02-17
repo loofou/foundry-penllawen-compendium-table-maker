@@ -1,57 +1,38 @@
-div.pl-summary-journals td.centered {
-    text-align: center;    
+div.summary-description {
+    font-size: small;
+    overflow: scroll;
+    overflow-x: hidden;
+    max-height: 100px;
 }
 
-div.pl-summary-journals td.long-text {
-  text-align: left;    
+div.pl-summary-journals td img {
+    /*display: block;
+    width: auto;
+    height: 100%;
+    min-height: 32px;
+    max-height: 80px;*/
+
+    width: 100%;
+    height: 100%;
+    max-height: 100px;
+    object-fit: contain;
+
+    filter: none;
 }
 
-
-
-div.pl-summary-journals td.rowheading {
-  text-align: center;    
-  background: #dddddd;
-  color: #222222;
-  font-size: large;
+div.pl-summary-journals tr td {
+    max-height: 100px;
 }
 
-
-div.pl-summary-journals .hasPopup {
-    position: relative;
+div.pl-summary-journals th:nth-child(1){
+    width: 64px;
 }
 
-div.pl-summary-journals .popup {
-    position: absolute;
-    top: -50px;
-    left: 200px;
-    /* transform: translateY(70%) scale(0); */
-    transform: scale(0);
-    transition: transform 0.1s ease-in;
-    transform-origin: left;
-    display: inline;
-    background: #eeeeee;
-    z-index: 20;
-    min-width: 300px;
-    padding: 1rem;
-    border: 1px solid black;
-  }
-
-  div.pl-summary-journals .hasPopup:hover div {
-    /* transform: translateY(-70%) scale(1); */
-    transform: scale(1);
-  }
-
-
-  div.pl-summary-journals table {
-    border-collapse: collapse;
-  }
-
-
-  p.compendiumSource {
+p.compendiumSource {
     font-style: italic;
     color: #222222;
-  }
+}
 
-  p.paddingGraf {
+p.paddingGraf {
     padding-top: 250px;
-  }
+}
